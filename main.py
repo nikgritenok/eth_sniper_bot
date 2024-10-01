@@ -8,6 +8,8 @@ import asyncio
 import json
 from dotenv import load_dotenv
 
+load_dotenv()
+
 BOT_TOKEN=os.getenv('BOT_TOKEN')
 ETHERSCAN_API_KEY = os.getenv('ETHERSCAN_API_KEY')
 
