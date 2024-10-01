@@ -7,6 +7,7 @@ from aiogram.types import Message
 import asyncio
 import json
 from dotenv import load_dotenv
+from datetime import datetime
 
 load_dotenv()
 
@@ -24,7 +25,7 @@ user_wallets = {}
 # Функция для записи диалога в лог-файл пользователя
 def log_user_message(user_id, message):
     with open(f'{user_id}.log', 'a') as f:
-        f.write(f'{message}\n')
+        f.write(f'{datetime.now()}: {message}\n')  # Добавление времени к записи
 
 # Команда /start
 @dp.message(Command('start'))
