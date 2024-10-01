@@ -1,7 +1,7 @@
 import os
 import logging
 import requests
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
 from aiogram.types import Message
 import asyncio
