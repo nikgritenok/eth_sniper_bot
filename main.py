@@ -69,7 +69,6 @@ async def get_transactions(wallet_address):
     response = requests.get(url)
     return response.json()
 
-# Команда /check_transactions
 @dp.message(Command('check_transactions'))
 async def check_transactions(message: Message):
     user_id = message.from_user.id
@@ -104,7 +103,7 @@ async def balance_command(message: Message):
     user_id = message.from_user.id
     log_user_message(user_id, f"Balance check requested. Message: {message.text}")
     
-    wallet_address = user_wallets.get(user_id)  # Получаем кошелек из словаря
+    wallet_address = user_wallets.get(user_id)
     
     if not wallet_address:
         await message.answer("Вы не указали адрес кошелька. Используйте команду /set_wallet.")
@@ -119,13 +118,11 @@ async def balance_command(message: Message):
     else:
         await message.answer("Не удалось получить баланс. Проверьте правильность введенного адреса.")
 
-# Основная функция запуска бота
 async def main():
     try:
         await dp.start_polling(bot)
     finally:
         await bot.session.close()
 
-# Запуск бота
 if __name__ == '__main__':
     asyncio.run(main())
